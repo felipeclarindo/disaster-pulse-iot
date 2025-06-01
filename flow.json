@@ -1,0 +1,24 @@
+[
+  {
+    "id": "97dab310324f717a",
+    "type": "function",
+    "z": "4076b6a82d7e7c42",
+    "name": "Classificar Nível",
+    "func": "// Parse do nível\nlet nivel = parseInt(msg.payload);\nif (isNaN(nivel)) return null;\n\nlet status = \"\";\nlet cor = \"blue\";\n\nif (nivel <= 1500) {\n    status = \"Baixo\";\n    cor = \"red\";\n} else if (nivel <= 3000) {\n    status = \"Médio\";\n    cor = \"orange\";\n} else {\n    status = \"Alto\";\n    cor = \"green\";\n}\n\nreturn [\n    { payload: nivel, topic: \"nivel\" }, \n    { payload: status }, \n    { payload: { background: cor, label: `Status: ${status}` } }, // Template\n    { payload: \"\" }\n];",
+    "outputs": 5,
+    "timeout": "",
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 440,
+    "y": 120,
+    "wires": [
+      ["a4e2cf2b8c4b38cb"],
+      ["e6b968d7e836a844"],
+      ["a2e0a651d7dbabca"],
+      [],
+      ["f3c8f6415859353b"]
+    ]
+  }
+]
